@@ -31,6 +31,7 @@ spec:
         ports:
         - containerPort: 3306   
 
+---
 
 kind: Service
 apiVersion: v1
