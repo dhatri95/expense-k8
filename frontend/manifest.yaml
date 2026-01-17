@@ -122,7 +122,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: joindevops/frontend:v1
+        image: joindevops/frontend:v1.0
         ports:
         - containerPort: 8080
         volumeMounts:
