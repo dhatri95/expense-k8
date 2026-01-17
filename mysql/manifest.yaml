@@ -26,7 +26,7 @@ spec:
         environment: dev
     spec:
       containers:
-        name: mysql
+      - name: mysql
         image: joindevops/mysql:v1.0
         ports:
         - containerPort: 3306   
