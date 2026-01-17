@@ -1,7 +1,7 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: backend
+  name: frontend
   namespace: expense
 data:
   DB_HOST: mysql # mysql component service name
@@ -11,35 +11,32 @@ data:
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: backend
+  name: frontend
   namespace: expense
   labels:
-    component: backend-deployment
+    component: frontend-deployment
     project: expense
     environment: dev
 spec:
   replicas: 2
   selector:
     matchLabels:
-      component: backend
-      tier: app
+      component: frontend
+      tier: web
       project: expense
       environment: dev
   template:
     metadata:
-      name: backend
+      name: frontend
       labels:
-        component: backend
-        tier: app
+        component: frontend
+        tier: web
         project: expense
         environment: dev
     spec:
       containers:
-      - name: backend
-        image: joindevops/backend:v1
-        envFrom:
-          configMapRef:
-            name: backend
+      - name: frontend
+        image: joindevops/frontend:v1
         ports:
         - containerPort: 8080
 
@@ -49,16 +46,16 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: backend
+  name: frontend
   namespace: expense
   labels:
-    component: backend-service
+    component: frontend-service
     project: expense
     environment: dev
 spec:
   selector:
-    component: backend
-    tier: app
+    component: frontend
+    tier: web
     project: expense
     environment: dev
   ports:
