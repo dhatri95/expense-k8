@@ -40,11 +40,10 @@ metadata:
     component: mysql-service
 spec:
   selector:
-    matchLabels:
-      component: mysql
-      tier: DB
-      project: expense
-      environment: dev
+    component: mysql
+    tier: DB
+    project: expense
+    environment: dev
   ports:
   - port: 3306
     targetPort: 3306
