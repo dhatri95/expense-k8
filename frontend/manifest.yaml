@@ -126,9 +126,13 @@ spec:
         ports:
         - containerPort: 8080
         volumeMounts:
-        envFrom:
-        - configMapRef:
-            name: frontend
+        - name: nginx-conf
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+          readOnly: true
+        # envFrom:
+        # - configMapRef:
+        #     name: frontend
       volumes:
       - name: nginx-conf
         configMap:
@@ -136,6 +140,7 @@ spec:
           items:
           - key: nginx.conf
             path: nginx.conf
+
 
 ---
 
