@@ -162,5 +162,6 @@ spec:
     environment: dev
   ports:
   - port: 80
+    nodePort: 31134
     targetPort: 8080
       
