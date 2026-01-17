@@ -46,7 +46,7 @@ spec:
       project: expense
       environment: dev
   ports:
-    port: 3306
+  - port: 3306
     targetPort: 3306
 
 
