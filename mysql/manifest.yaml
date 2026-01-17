@@ -36,6 +36,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: mysql
+  namespace: expense
   labels:
     component: mysql-service
 spec:
